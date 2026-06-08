@@ -1,0 +1,8 @@
+mobile_base_controller: #node name
+  ros__parameters:
+    max_linear_velocity: 0.7
+    max_angular_velocity: 1.57
+    obstacle_stop_distance: 0.6
+    control_frequency: 55.5
+    base_frame: "base_link"
+    odom_frame: "odom"

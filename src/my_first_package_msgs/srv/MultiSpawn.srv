@@ -1,0 +1,9 @@
+# Request
+# number of turtles
+int64 num
+---
+# Response
+# position
+float64[] x
+float64[] y
+float64[] theta
