@@ -46,7 +46,9 @@ setup(
             'camera_node = my_first_package.camera_node:main',
             'cmd_vel_to_wheel_node = my_first_package.cmd_vel_to_wheel:main',
             'fake_encoder_node = my_first_package.fake_encoder_node:main',
-            'tick_to_distance = my_first_package.tick_to_distance:main'
+            'tick_to_distance = my_first_package.tick_to_distance:main',
+            'odom_monitor_node = my_first_package.odom_monitor:main',
+            'simple_marker_node = my_first_package.simple_marker:main'
         ],
     },
 )
