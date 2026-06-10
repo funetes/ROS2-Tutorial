@@ -160,4 +160,20 @@
         <child link="laser_link"/>
         <origin xyz="0.10 0.0 0.13" rpy="0.0 0.0 0.0"/>
     </joint>
+
+    <link name="camera_link">
+        <visual>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <box size="0.04 0.04 0.03"/>
+            </geometry>
+            <material name="gray"/>
+        </visual>
+    </link>
+
+    <joint name="camera_joint" type="fixed">
+        <parent link="base_link"/>
+        <child link="camera_link"/>
+        <origin xyz="0.16 0.0 0.12" rpy="0.0 0.0 0.0"/>
+    </joint>
 </robot>
