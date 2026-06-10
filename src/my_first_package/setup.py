@@ -21,6 +21,9 @@ setup(
         ),
         ('share/' + package_name + '/rviz',
          glob.glob(os.path.join('rviz', '*.rviz'))
+        ),
+        ('share/' + package_name + '/urdf',
+         glob.glob(os.path.join('urdf', '*.urdf'))
         )
     ],
     install_requires=['setuptools'],
