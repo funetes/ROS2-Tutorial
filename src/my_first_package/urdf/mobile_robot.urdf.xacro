@@ -49,7 +49,7 @@
     <!-- Wheels -->
     <!-- ========================= -->
 
-    <xacro:wheel 
+    <!-- <xacro:wheel 
         prefix="left"
         parent="base_link"
         x="0"
@@ -63,7 +63,40 @@
         x="0"
         y="${- base_width / 2 - wheel_width / 2}"
         z="${wheel_radius}"
+    /> -->
+
+    <xacro:wheel 
+        prefix="front_left"
+        parent="base_link"
+        x="${base_length / 3}"
+        y="${base_width / 2 + wheel_width / 2}"
+        z="${wheel_radius}"
     />
+
+    <xacro:wheel 
+        prefix="front_right"
+        parent="base_link"
+        x="${base_length / 3}"
+        y="${-base_width / 2 - wheel_width / 2}"
+        z="${wheel_radius}"
+    />
+
+    <xacro:wheel 
+        prefix="rear_left"
+        parent="base_link"
+        x="${-base_length / 3}"
+        y="${base_width / 2 + wheel_width / 2}"
+        z="${wheel_radius}"
+    />
+
+    <xacro:wheel 
+        prefix="rear_right"
+        parent="base_link"
+        x="${-base_length / 3}"
+        y="${-base_width / 2 - wheel_width / 2}"
+        z="${wheel_radius}"
+    />
+
 
     <!-- ========================= -->
     <!-- Sensors -->
@@ -80,6 +113,14 @@
         name="front_camera"
         parent="base_link"
         x="${base_length / 2 + 0.04}"
+        y="0"
+        z="${base_height * 0.75}"
+     />
+
+     <xacro:camera_sensor
+        name="rear_camera"
+        parent="base_link"
+        x="${-base_length / 2 - 0.04}"
         y="0"
         z="${base_height * 0.75}"
      />
