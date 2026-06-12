@@ -3,9 +3,18 @@ from launch import LaunchDescription
 from launch.substitutions import Command
 from launch_ros.actions import Node
 from ament_index_python.packages import get_package_share_directory
+from launch_ros.substitutions import FindPackageShare
 
 def generate_launch_description():
     package_name = 'my_first_package'
+
+    pkg_share = FindPackageShare(package='my_first_package').find('my_first_package')
+
+    default_rviz_config_path = os.path.join(
+        pkg_share,
+        'rviz',
+        'mobile_robot.rviz'
+    )
 
     pkg_path = get_package_share_directory(package_name)
     xacro_file = os.path.join(pkg_path,'urdf','mobile_robot.urdf.xacro')
@@ -30,6 +39,10 @@ def generate_launch_description():
     rviz_node=Node(
         package='rviz2',
         executable='rviz2',
+        arguments=[
+            '-d',
+            default_rviz_config_path
+        ],
         output='screen'
     )
 
