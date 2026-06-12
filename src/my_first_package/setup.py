@@ -24,6 +24,9 @@ setup(
         ),
         ('share/' + package_name + '/urdf',
          glob.glob(os.path.join('urdf', '*.urdf'))
+        ),
+        ('share/' + package_name + '/urdf',
+         glob.glob(os.path.join('urdf', '*.xacro'))
         )
     ],
     install_requires=['setuptools'],
@@ -54,7 +57,8 @@ setup(
             'fake_encoder_node = my_first_package.fake_encoder_node:main',
             'tick_to_distance = my_first_package.tick_to_distance:main',
             'odom_monitor_node = my_first_package.odom_monitor:main',
-            'simple_marker_node = my_first_package.simple_marker:main'
+            'simple_marker_node = my_first_package.simple_marker:main',
+            'robot_description_node = my_first_package.robot_description_listener:main'
         ],
     },
 )

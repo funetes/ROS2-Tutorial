@@ -1,0 +1,95 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="simple_mobile_robot">
+    <xacro:include filename="$(find my_first_package)/urdf/wheel.xacro"/>
+    <xacro:include filename="$(find my_first_package)/urdf/sensor.xacro"/>
+
+    <xacro:property name="base_length" value="0.6" />
+    <xacro:property name="base_width" value="0.4" />
+    <xacro:property name="base_height" value="0.2" />
+
+    <xacro:property name="wheel_radius" value="0.08" />
+    <xacro:property name="wheel_width" value="0.04" />
+
+    <material name="blue">
+        <color rgba="0.1 0.2 0.8 1.0"/>
+    </material>
+
+    <material name="black">
+        <color rgba="0.01 0.01 0.01 1.0"/>
+    </material>
+
+    <material name="gray">
+        <color rgba="0.5 0.5 0.5 1.0"/>
+    </material>
+
+    <link name="base_link">
+        <visual>
+            <origin xyz="0.0 0.0 ${base_height / 2}" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <box size="${base_length} ${base_width} ${base_height}"/>
+            </geometry>
+            <material name="">
+                <color rgba="1.0 0.0 0.0 1.0"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0.0 0.0 ${base_height / 2}" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <box size="${base_length} ${base_width} ${base_height}"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0.0 0.0 ${base_height / 2}" rpy="0.0 0.0 0.0"/>
+            <mass value="5.0"/>
+            <inertia ixx="0.1" ixy="0.0" ixz="0.0" iyy="0.1" iyz="0.0" izz="0.1"/>
+        </inertial>
+    </link>
+
+    <!-- ========================= -->
+    <!-- Wheels -->
+    <!-- ========================= -->
+
+    <xacro:wheel 
+        prefix="left"
+        parent="base_link"
+        x="0"
+        y="${base_width / 2 + wheel_width / 2}"
+        z="${wheel_radius}"
+    />
+
+    <xacro:wheel 
+        prefix="right"
+        parent="base_link"
+        x="0"
+        y="${- base_width / 2 - wheel_width / 2}"
+        z="${wheel_radius}"
+    />
+
+    <!-- ========================= -->
+    <!-- Sensors -->
+    <!-- ========================= -->
+     <xacro:lidar_sensor
+        name="lidar"
+        parent="base_link"
+        x="0"
+        y="0"
+        z="${base_height + 0.02}"
+     />
+
+     <xacro:camera_sensor
+        name="front_camera"
+        parent="base_link"
+        x="${base_length / 2 + 0.04}"
+        y="0"
+        z="${base_height * 0.75}"
+     />
+
+     <xacro:imu_sensor
+        name="imu"
+        parent="base_link"
+        x="0"
+        y="0"
+        z="${base_height / 2}"
+     />
+
+</robot>
