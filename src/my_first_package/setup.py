@@ -58,7 +58,8 @@ setup(
             'tick_to_distance = my_first_package.tick_to_distance:main',
             'odom_monitor_node = my_first_package.odom_monitor:main',
             'simple_marker_node = my_first_package.simple_marker:main',
-            'robot_description_node = my_first_package.robot_description_listener:main'
+            'robot_description_node = my_first_package.robot_description_listener:main',
+            'wall_follower_node = my_first_package.wall_follower_node:main'
         ],
     },
 )
